@@ -1,0 +1,1 @@
+tunctl is used to set up and maintain persistent TUN/TAP network interfaces, enabling user applications to simulate network traffic. Such interfaces is useful for VPN, virtualization and a number of other applications.

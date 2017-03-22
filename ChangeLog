@@ -1,0 +1,7 @@
+Version 1.5
+	- Imported updated version from uml_utilities_20070815.tar.bz2
+	- Imported fixes from OpenSUSE
+	  o -n option for point-to-point TUN devices
+	  o -p option for TAP device
+	  default is autodetection, using TUN if the device starts with tun*,
+	  TAP otherwise
