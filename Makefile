@@ -1,32 +1,24 @@
 PACKAGE = tunctl
 VERSION = 1.5
 BIN = $(PACKAGE)
-MANS = 8
-MAN = $(PACKAGE).$(MANS)
 
-DIST = Makefile $(PACKAGE).spec $(PACKAGE).c $(PACKAGE).sgml ChangeLog
+DIST = Makefile $(PACKAGE).spec $(PACKAGE).c
 
 CFLAGS = -g -Wall
 
 BIN_DIR ?= /usr/sbin
-MAN_DIR ?= /usr/share/man/man$(MANS)
 
-all : $(BIN) $(MAN)
+all : $(BIN)
 
 $(BIN) : $(BIN).c
 	$(CC) $(CFLAGS) -o $(BIN) $(BIN).c
 
-$(MAN) : $(PACKAGE).sgml
-	docbook2man $(PACKAGE).sgml
-
 clean : 
-	rm -f $(BIN) $(OBJS) $(MAN) *~ manpage.*
+	rm -f $(BIN) $(OBJS)
 
 install : $(BIN) $(MAN)
 	install -d $(DESTDIR)$(BIN_DIR)
 	install $(BIN) $(DESTDIR)$(BIN_DIR)
-	install -d $(DESTDIR)$(MAN_DIR)
-	install $(MAN) $(DESTDIR)$(MAN_DIR)
 
 .PHONY: dist
 dist: distcheck
