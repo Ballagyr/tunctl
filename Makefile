@@ -16,7 +16,7 @@ $(BIN) : $(BIN).c
 clean : 
 	rm -f $(BIN) $(OBJS)
 
-install : $(BIN) $(MAN)
+install : $(BIN)
 	install -d $(DESTDIR)$(BIN_DIR)
 	install $(BIN) $(DESTDIR)$(BIN_DIR)
 
